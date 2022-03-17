@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
 
+## npm install
+
+Run `npm install` to install all required dependencies for the project.
+
+## Server Side Rendering server (SSR)
+
+Run `npm run dev:ssr` to start rendering your application with Universal on your local system, use the following command. Navigate to http://localhost:4200/. The app will be rendered in server side and returned to the client.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
