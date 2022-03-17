@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Blog</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#blogNav" aria-controls="blogNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="blogNav">
+      <ul class="navbar-nav">
+
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <ng-container *ngIf="userIsAuthenticated; else userNotAuthenticated">
+          <li class="nav-item">
+            <a class="nav-link dropdown">
+              <div class="dropdown-toggle" data-bs-toggle="dropdown">
+                My Profile
+              </div>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
+              </ul>
+            </a>
+          </li>
+
+        </ng-container>
+        <ng-template #userNotAuthenticated>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Sign in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register" routerLinkActive="active">Sign up</a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</nav>

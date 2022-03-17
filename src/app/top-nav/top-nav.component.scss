@@ -1,0 +1,26 @@
+@import '../../scss/custom';
+
+
+.navbar {
+   padding: 0.5rem 1rem;
+
+  .navbar-brand {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 1.5rem !important;
+    padding-top: 0rem !important;
+    margin-right: 2rem !important;
+    color: $primary !important;
+  }
+
+  .user-image {
+    height: 26px;
+    border-radius: 50px;
+    float: left;
+    margin-right: 5px;
+  }
+
+  .dropdown {
+    cursor: pointer;
+  }
+
+}

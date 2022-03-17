@@ -1,0 +1,53 @@
+<div class="login-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 mx-md-auto">
+        <h1 class="text-center">Sign in</h1>
+        <a class="d-flex justify-content-center" routerLink="/register">Need an account?</a>
+        <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+          <ng-container *ngFor="let error of (errors$ | async)">
+            <div class="alert alert-danger" role="alert" >
+              {{ error}}
+            </div>
+          </ng-container>
+
+          <div class="mb-3" >
+            <input
+            type="email"
+            name="email"
+            ngModel
+            #emailInput="ngModel"
+            placeholder="Email"
+            class="form-control form-control-lg"
+            [ngClass]="{'is-invalid': loginForm.submitted && emailInput.invalid}"
+            aria-describedby="invalidEmail"
+            required
+            email>
+            <div id="invalidEmail" class="invalid-feedback" *ngIf="loginForm.submitted && emailInput.invalid">
+              Please enter an email.
+            </div>
+          </div>
+          <div class="mb-3">
+            <input
+            type="password"
+            name="password"
+            ngModel
+            #passwordInput="ngModel"
+            placeholder="Password"
+            class="form-control form-control-lg"
+            [ngClass]="{'is-invalid': loginForm.submitted && passwordInput.invalid}"
+            aria-describedby="invalidPassword"
+            required>
+
+            <div id="invalidPassword" class="invalid-feedback" *ngIf="loginForm.submitted && passwordInput.invalid">
+              Please enter a password.
+            </div>
+          </div>
+          <div class="mb-3 text-end">
+            <button type="submit" class="btn btn-primary btn-lg text-white" [disabled]="!loginForm.valid">Sign in</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="tags">
+  <div class="h-100 p-4 bg-light border rounded-3">
+    <p>Popular Tags</p>
+    <div *ngIf="isLoading">Loading Tags....</div>
+    <div class="d-flex flex-row flex-wrap" *ngIf="!isLoading">
+      <button type="button" class="btn btn-secondary btn-sm btn-tag"
+        *ngFor="let tag of tags"
+        (click)="onTagClick(tag)"
+        >{{tag}}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="article-item">
+  <div class="article-item-top d-flex flex-wrap justify-content-between">
+    <div class="article-user">
+      <img [src]="article?.author?.image">
+      <div class="article-user-info">
+        <a>{{article?.author?.username}}</a>
+        <span class="date">{{article?.createdAt | date: 'MMMM d, y'}}</span>
+      </div>
+    </div>
+    <div class="article-item-favourite">
+      <button type="button"
+        class="btn btn-sm"
+        [ngClass]="{'btn-outline-primary': !article.favorited, 'btn-primary': article.favorited}"
+
+        >
+        <i class="bi bi-heart-fill"></i>
+        {{article.favoritesCount}}
+      </button>
+    </div>
+  </div>
+  <div class="article-item-detail d-flex flex-column">
+    <h1>{{article.title}}</h1>
+    <p>{{article.description}}</p>
+  </div>
+  <div class="article-item-bottom d-flex flex-wrap justify-content-between">
+      <a class="read-more">Read more...</a>
+      <ul class="tag-list">
+        <li class="tag-name" *ngFor="let tag of article.tagList">{{tag}}</li>
+      </ul>
+  </div>
+</div>

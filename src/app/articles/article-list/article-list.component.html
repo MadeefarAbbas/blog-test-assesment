@@ -1,0 +1,16 @@
+<ng-container *ngIf="!isLoading; else loading">
+  <app-article-item
+  *ngFor="let article of articles"
+  [article]="article"
+></app-article-item>
+
+</ng-container>
+
+<ng-template #loading>
+  Loading articles...
+</ng-template>
+
+<ng-container *ngIf="!isLoading && articles.length == 0">
+  No articles are here... yet.
+</ng-container>
+

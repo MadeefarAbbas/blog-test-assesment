@@ -1,0 +1,71 @@
+<div class="register-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 mx-md-auto">
+        <h1 class="text-center">Sign up</h1>
+        <a class="d-flex justify-content-center" routerLink="/login">Have an account?</a>
+
+        <form (submit)="onRegister(registerForm)" #registerForm="ngForm">
+          <ng-container *ngFor="let error of (errors$ | async)">
+            <div class="alert alert-danger" role="alert" >
+              {{ error}}
+            </div>
+          </ng-container>
+          <div class="mb-3" >
+            <input
+            type="text"
+            name="username"
+            ngModel
+            #usernameInput="ngModel"
+            placeholder="Username"
+            class="form-control form-control-lg"
+            [ngClass]="{'is-invalid': registerForm.submitted && usernameInput.invalid}"
+            aria-describedby="invalidUsername"
+            required>
+            <div id="invalidUsername" class="invalid-feedback" *ngIf="registerForm.submitted && usernameInput.invalid">
+              Please enter a username.
+            </div>
+          </div>
+          <div class="mb-3" >
+            <input
+            type="email"
+            name="email"
+            ngModel
+            #emailInput="ngModel"
+            placeholder="Email"
+            class="form-control form-control-lg"
+            [ngClass]="{'is-invalid': registerForm.submitted && emailInput.invalid}"
+            aria-describedby="invalidEmail"
+            required
+            email>
+            <div id="invalidEmail" class="invalid-feedback" *ngIf="registerForm.submitted && emailInput.invalid">
+              Please enter an email.
+            </div>
+          </div>
+          <div class="mb-3">
+            <input
+            type="password"
+            name="password"
+            ngModel
+            #passwordInput="ngModel"
+            placeholder="Password"
+            class="form-control form-control-lg"
+            [ngClass]="{'is-invalid': registerForm.submitted && passwordInput.invalid}"
+            aria-describedby="invalidPassword"
+            required>
+
+            <div id="invalidPassword" class="invalid-feedback" *ngIf="registerForm.submitted && passwordInput.invalid">
+              Please enter a password.
+            </div>
+          </div>
+          <div class="mb-3 text-end">
+            <button type="submit" class="btn btn-primary btn-lg text-white" [disabled]="!registerForm.valid">Sign up</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
